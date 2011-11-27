@@ -1,0 +1,403 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A7AA080214825387009DE810 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AA080114825387009DE810 /* Foundation.framework */; };
+		A7AA080814825387009DE810 /* CTOpenSSLWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A7AA080714825387009DE810 /* CTOpenSSLWrapper.m */; };
+		A7AA081014825387009DE810 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AA080F14825387009DE810 /* SenTestingKit.framework */; };
+		A7AA081214825387009DE810 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AA081114825387009DE810 /* UIKit.framework */; };
+		A7AA081314825387009DE810 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AA080114825387009DE810 /* Foundation.framework */; };
+		A7AA081614825387009DE810 /* libCTOpenSSLWrapper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AA07FE14825387009DE810 /* libCTOpenSSLWrapper.a */; };
+		A7AA081C14825387009DE810 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7AA081A14825387009DE810 /* InfoPlist.strings */; };
+		A7AA081F14825387009DE810 /* CTOpenSSLWrapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7AA081E14825387009DE810 /* CTOpenSSLWrapperTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A7AA081414825387009DE810 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7AA07F514825387009DE810 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A7AA07FD14825387009DE810;
+			remoteInfo = CTOpenSSLWrapper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A7AA07FE14825387009DE810 /* libCTOpenSSLWrapper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCTOpenSSLWrapper.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7AA080114825387009DE810 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A7AA080514825387009DE810 /* CTOpenSSLWrapper-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CTOpenSSLWrapper-Prefix.pch"; sourceTree = "<group>"; };
+		A7AA080614825387009DE810 /* CTOpenSSLWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTOpenSSLWrapper.h; sourceTree = "<group>"; };
+		A7AA080714825387009DE810 /* CTOpenSSLWrapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTOpenSSLWrapper.m; sourceTree = "<group>"; };
+		A7AA080E14825387009DE810 /* CTOpenSSLWrapperTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CTOpenSSLWrapperTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7AA080F14825387009DE810 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		A7AA081114825387009DE810 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		A7AA081914825387009DE810 /* CTOpenSSLWrapperTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CTOpenSSLWrapperTests-Info.plist"; sourceTree = "<group>"; };
+		A7AA081B14825387009DE810 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A7AA081D14825387009DE810 /* CTOpenSSLWrapperTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTOpenSSLWrapperTests.h; sourceTree = "<group>"; };
+		A7AA081E14825387009DE810 /* CTOpenSSLWrapperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTOpenSSLWrapperTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A7AA07FB14825387009DE810 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7AA080214825387009DE810 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7AA080A14825387009DE810 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7AA081014825387009DE810 /* SenTestingKit.framework in Frameworks */,
+				A7AA081214825387009DE810 /* UIKit.framework in Frameworks */,
+				A7AA081314825387009DE810 /* Foundation.framework in Frameworks */,
+				A7AA081614825387009DE810 /* libCTOpenSSLWrapper.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A7AA07F314825387009DE810 = {
+			isa = PBXGroup;
+			children = (
+				A7AA080314825387009DE810 /* CTOpenSSLWrapper */,
+				A7AA081714825387009DE810 /* CTOpenSSLWrapperTests */,
+				A7AA080014825387009DE810 /* Frameworks */,
+				A7AA07FF14825387009DE810 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A7AA07FF14825387009DE810 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A7AA07FE14825387009DE810 /* libCTOpenSSLWrapper.a */,
+				A7AA080E14825387009DE810 /* CTOpenSSLWrapperTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A7AA080014825387009DE810 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A7AA080114825387009DE810 /* Foundation.framework */,
+				A7AA080F14825387009DE810 /* SenTestingKit.framework */,
+				A7AA081114825387009DE810 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A7AA080314825387009DE810 /* CTOpenSSLWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				A7AA080614825387009DE810 /* CTOpenSSLWrapper.h */,
+				A7AA080714825387009DE810 /* CTOpenSSLWrapper.m */,
+				A7AA080414825387009DE810 /* Supporting Files */,
+			);
+			path = CTOpenSSLWrapper;
+			sourceTree = "<group>";
+		};
+		A7AA080414825387009DE810 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A7AA080514825387009DE810 /* CTOpenSSLWrapper-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A7AA081714825387009DE810 /* CTOpenSSLWrapperTests */ = {
+			isa = PBXGroup;
+			children = (
+				A7AA081D14825387009DE810 /* CTOpenSSLWrapperTests.h */,
+				A7AA081E14825387009DE810 /* CTOpenSSLWrapperTests.m */,
+				A7AA081814825387009DE810 /* Supporting Files */,
+			);
+			path = CTOpenSSLWrapperTests;
+			sourceTree = "<group>";
+		};
+		A7AA081814825387009DE810 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A7AA081914825387009DE810 /* CTOpenSSLWrapperTests-Info.plist */,
+				A7AA081A14825387009DE810 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A7AA07FC14825387009DE810 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A7AA07FD14825387009DE810 /* CTOpenSSLWrapper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7AA082214825387009DE810 /* Build configuration list for PBXNativeTarget "CTOpenSSLWrapper" */;
+			buildPhases = (
+				A7AA07FA14825387009DE810 /* Sources */,
+				A7AA07FB14825387009DE810 /* Frameworks */,
+				A7AA07FC14825387009DE810 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CTOpenSSLWrapper;
+			productName = CTOpenSSLWrapper;
+			productReference = A7AA07FE14825387009DE810 /* libCTOpenSSLWrapper.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		A7AA080D14825387009DE810 /* CTOpenSSLWrapperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7AA082514825387009DE810 /* Build configuration list for PBXNativeTarget "CTOpenSSLWrapperTests" */;
+			buildPhases = (
+				A7AA080914825387009DE810 /* Sources */,
+				A7AA080A14825387009DE810 /* Frameworks */,
+				A7AA080B14825387009DE810 /* Resources */,
+				A7AA080C14825387009DE810 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A7AA081514825387009DE810 /* PBXTargetDependency */,
+			);
+			name = CTOpenSSLWrapperTests;
+			productName = CTOpenSSLWrapperTests;
+			productReference = A7AA080E14825387009DE810 /* CTOpenSSLWrapperTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A7AA07F514825387009DE810 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = Home;
+			};
+			buildConfigurationList = A7AA07F814825387009DE810 /* Build configuration list for PBXProject "CTOpenSSLWrapper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A7AA07F314825387009DE810;
+			productRefGroup = A7AA07FF14825387009DE810 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A7AA07FD14825387009DE810 /* CTOpenSSLWrapper */,
+				A7AA080D14825387009DE810 /* CTOpenSSLWrapperTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A7AA080B14825387009DE810 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7AA081C14825387009DE810 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A7AA080C14825387009DE810 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A7AA07FA14825387009DE810 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7AA080814825387009DE810 /* CTOpenSSLWrapper.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7AA080914825387009DE810 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7AA081F14825387009DE810 /* CTOpenSSLWrapperTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A7AA081514825387009DE810 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A7AA07FD14825387009DE810 /* CTOpenSSLWrapper */;
+			targetProxy = A7AA081414825387009DE810 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A7AA081A14825387009DE810 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7AA081B14825387009DE810 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A7AA082014825387009DE810 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A7AA082114825387009DE810 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A7AA082314825387009DE810 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/CTOpenSSLWrapper.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CTOpenSSLWrapper/CTOpenSSLWrapper-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A7AA082414825387009DE810 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/CTOpenSSLWrapper.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CTOpenSSLWrapper/CTOpenSSLWrapper-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A7AA082614825387009DE810 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CTOpenSSLWrapper/CTOpenSSLWrapper-Prefix.pch";
+				INFOPLIST_FILE = "CTOpenSSLWrapperTests/CTOpenSSLWrapperTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		A7AA082714825387009DE810 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CTOpenSSLWrapper/CTOpenSSLWrapper-Prefix.pch";
+				INFOPLIST_FILE = "CTOpenSSLWrapperTests/CTOpenSSLWrapperTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A7AA07F814825387009DE810 /* Build configuration list for PBXProject "CTOpenSSLWrapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7AA082014825387009DE810 /* Debug */,
+				A7AA082114825387009DE810 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7AA082214825387009DE810 /* Build configuration list for PBXNativeTarget "CTOpenSSLWrapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7AA082314825387009DE810 /* Debug */,
+				A7AA082414825387009DE810 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A7AA082514825387009DE810 /* Build configuration list for PBXNativeTarget "CTOpenSSLWrapperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7AA082614825387009DE810 /* Debug */,
+				A7AA082714825387009DE810 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A7AA07F514825387009DE810 /* Project object */;
+}
