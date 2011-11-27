@@ -16,7 +16,7 @@ NSString *NSStringFromCTOpenSSLCipher(CTOpenSSLCipher cipher);
 
 /**
  @abstract  encrypts data symmetrically
- @param     cypher: the cypher to be used
+ @param     cipher: the cipher to be used
  @param     symmetricKeyData: data which will be used as symmetric key
  @param     data: data to be encrypted
  @return    encrypted data
@@ -25,7 +25,7 @@ NSData *CTOpenSSLSymmetricEncrypt(CTOpenSSLCipher cipher, NSData *symmetricKeyDa
 
 /**
  @abstract  decrypts data symmetrically
- @param     cypher: the cypher to be used
+ @param     cipher: the cipher to be used
  @param     symmetricKeyData: data which will be used as symmetric key
  @param     encryptedData: data to be decrypted
  @return    decrypted data

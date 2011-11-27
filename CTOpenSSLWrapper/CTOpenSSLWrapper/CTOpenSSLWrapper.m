@@ -34,11 +34,11 @@ void _CTOpenSSLCleanup(void)
 
 NSString *NSStringFromCTOpenSSLCipher(CTOpenSSLCipher cipher)
 {
-    NSString *cypherString = nil;
+    NSString *cipherString = nil;
     
     switch (cipher) {
         case CTOpenSSLCipherAES256:
-            cypherString = @"aes256";
+            cipherString = @"aes256";
             break;
             
         default:
@@ -46,7 +46,7 @@ NSString *NSStringFromCTOpenSSLCipher(CTOpenSSLCipher cipher)
             break;
     }
     
-    return cypherString;
+    return cipherString;
 }
 
 NSData *CTOpenSSLSymmetricEncrypt(CTOpenSSLCipher CTCipher, NSData *symmetricKeyData, NSData *data)
