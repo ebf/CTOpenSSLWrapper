@@ -66,7 +66,7 @@ NSData *CTOpenSSLSymmetricEncrypt(CTOpenSSLCipher CTCipher, NSData *symmetricKey
     unsigned char *inputBytes = (unsigned char *)data.bytes;
     int inputLength = (int)data.length;
     unsigned char *outputBuffer = NULL;
-    unsigned char initialVector[EVP_MAX_IV_LENGTH];
+    unsigned char initializationVector[EVP_MAX_IV_LENGTH];
     int outputLength = 0;
     int temporaryLength = 0;
     
@@ -81,10 +81,10 @@ NSData *CTOpenSSLSymmetricEncrypt(CTOpenSSLCipher CTCipher, NSData *symmetricKey
         [NSException raise:NSInternalInconsistencyException format:@"unable to get cipher with name %@", cipherName];
     }
     
-    EVP_BytesToKey(cipher, EVP_md5(), NULL, symmetricKeyData.bytes, (int)symmetricKeyData.length, 1, evp_key, initialVector);
+    EVP_BytesToKey(cipher, EVP_md5(), NULL, symmetricKeyData.bytes, (int)symmetricKeyData.length, 1, evp_key, initializationVector);
     EVP_CIPHER_CTX_init(&cipherContext);
     
-    if (!EVP_EncryptInit(&cipherContext, cipher, evp_key, initialVector)) {
+    if (!EVP_EncryptInit(&cipherContext, cipher, evp_key, initializationVector)) {
         EVP_CIPHER_CTX_cleanup(&cipherContext);
         _CTOpenSSLCleanup();
         [NSException raise:NSInternalInconsistencyException format:@"EVP_EncryptInit() failed!"];
@@ -134,7 +134,7 @@ NSData *CTOpenSSLSymmetricDecrypt(CTOpenSSLCipher CTCipher, NSData *symmetricKey
     
     unsigned char *inputBytes = (unsigned char *)encryptedData.bytes;
     unsigned char *outputBuffer = NULL;
-    unsigned char initialVector[EVP_MAX_IV_LENGTH];
+    unsigned char initializationVector[EVP_MAX_IV_LENGTH];
     int outputLength = 0;
     int temporaryLength = 0;
     int inputLength = (int)encryptedData.length;
@@ -151,11 +151,11 @@ NSData *CTOpenSSLSymmetricDecrypt(CTOpenSSLCipher CTCipher, NSData *symmetricKey
         [NSException raise:NSInternalInconsistencyException format:@"unable to get cipher with name %@", cipherName];
     }
     
-    EVP_BytesToKey(cipher, EVP_md5(), NULL, symmetricKeyData.bytes, (int)symmetricKeyData.length, 1, evp_key, initialVector);
+    EVP_BytesToKey(cipher, EVP_md5(), NULL, symmetricKeyData.bytes, (int)symmetricKeyData.length, 1, evp_key, initializationVector);
     
     EVP_CIPHER_CTX_init(&cCtx);
     
-    if (!EVP_DecryptInit(&cCtx, cipher, evp_key, initialVector)) {
+    if (!EVP_DecryptInit(&cCtx, cipher, evp_key, initializationVector)) {
         EVP_CIPHER_CTX_cleanup(&cCtx);
         _CTOpenSSLCleanup();
         [NSException raise:NSInternalInconsistencyException format:@"EVP_DecryptInit() failed!"];
