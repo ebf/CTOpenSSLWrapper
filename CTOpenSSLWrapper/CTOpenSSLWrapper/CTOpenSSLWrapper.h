@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
-    CTOpenSSLCypherAES256 = 0
-} CTOpenSSLCypher;
+    CTOpenSSLCipherAES256 = 0
+} CTOpenSSLCipher;
 
-NSString *NSStringFromCTOpenSSLCypher(CTOpenSSLCypher cypher);
+NSString *NSStringFromCTOpenSSLCipher(CTOpenSSLCipher cipher);
 
 /**
  @abstract  encrypts data symmetrically
@@ -21,7 +21,7 @@ NSString *NSStringFromCTOpenSSLCypher(CTOpenSSLCypher cypher);
  @param     data: data to be encrypted
  @return    encrypted data
  */
-NSData *CTOpenSSLSymmetricEncrypt(CTOpenSSLCypher cypher, NSData *symmetricKeyData, NSData *data);
+NSData *CTOpenSSLSymmetricEncrypt(CTOpenSSLCipher cipher, NSData *symmetricKeyData, NSData *data);
 
 /**
  @abstract  decrypts data symmetrically
@@ -30,4 +30,4 @@ NSData *CTOpenSSLSymmetricEncrypt(CTOpenSSLCypher cypher, NSData *symmetricKeyDa
  @param     encryptedData: data to be decrypted
  @return    decrypted data
  */
-NSData *CTOpenSSLSymmetricDecrypt(CTOpenSSLCypher cypher, NSData *symmetricKeyData, NSData *encryptedData);
+NSData *CTOpenSSLSymmetricDecrypt(CTOpenSSLCipher cipher, NSData *symmetricKeyData, NSData *encryptedData);

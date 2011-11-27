@@ -19,8 +19,9 @@
     NSString *stringToBeDecrypted = @"SecretString";
     NSData *rawData = [stringToBeDecrypted dataUsingEncoding:NSUTF8StringEncoding];
     
-    NSData *encryptedData = CTOpenSSLSymmetricEncrypt(CTOpenSSLCypherAES256, symmetricKeyData, rawData);
-    NSData *decryptedData = CTOpenSSLSymmetricDecrypt(CTOpenSSLCypherAES256, symmetricKeyData, encryptedData);
+    NSData *encryptedData = CTOpenSSLSymmetricEncrypt(CTOpenSSLCipherAES256, symmetricKeyData, rawData);
+    NSData *decryptedData = CTOpenSSLSymmetricDecrypt(CTOpenSSLCipherAES256, symmetricKeyData, encryptedData);
+    STAssertFalse([encryptedData isEqual:decryptedData], @"encryptedData and decryptedData cannot be the same");
     
     NSString *decryptedString = [[NSString alloc] initWithData:decryptedData encoding:NSUTF8StringEncoding];
     

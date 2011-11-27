@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A712DF4D14826BE700F4E399 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A712DF4B14826BE700F4E399 /* libcrypto.a */; };
 		A712DF4E14826BE700F4E399 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A712DF4C14826BE700F4E399 /* libssl.a */; };
+		A712DF4F1482714200F4E399 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A712DF4B14826BE700F4E399 /* libcrypto.a */; };
+		A712DF501482714400F4E399 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A712DF4C14826BE700F4E399 /* libssl.a */; };
 		A7AA080214825387009DE810 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AA080114825387009DE810 /* Foundation.framework */; };
 		A7AA080814825387009DE810 /* CTOpenSSLWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A7AA080714825387009DE810 /* CTOpenSSLWrapper.m */; };
 		A7AA081014825387009DE810 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AA080F14825387009DE810 /* SenTestingKit.framework */; };
@@ -61,6 +63,8 @@
 			files = (
 				A7AA081014825387009DE810 /* SenTestingKit.framework in Frameworks */,
 				A7AA081314825387009DE810 /* Foundation.framework in Frameworks */,
+				A712DF4F1482714200F4E399 /* libcrypto.a in Frameworks */,
+				A712DF501482714400F4E399 /* libssl.a in Frameworks */,
 				A7AA081614825387009DE810 /* libCTOpenSSLWrapper.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,6 +384,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../OpenSSL\"",
+					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
@@ -399,6 +404,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../OpenSSL\"",
+					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
