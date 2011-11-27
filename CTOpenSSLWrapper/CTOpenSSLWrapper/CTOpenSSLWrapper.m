@@ -7,6 +7,7 @@
 //
 
 #import "CTOpenSSLWrapper.h"
+#include <openssl/evp.h>
 
 NSString *NSStringFromCTOpenSSLCypher(CTOpenSSLCypher cypher)
 {

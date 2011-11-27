@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A712DF4D14826BE700F4E399 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A712DF4B14826BE700F4E399 /* libcrypto.a */; };
+		A712DF4E14826BE700F4E399 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A712DF4C14826BE700F4E399 /* libssl.a */; };
 		A7AA080214825387009DE810 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AA080114825387009DE810 /* Foundation.framework */; };
 		A7AA080814825387009DE810 /* CTOpenSSLWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A7AA080714825387009DE810 /* CTOpenSSLWrapper.m */; };
 		A7AA081014825387009DE810 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AA080F14825387009DE810 /* SenTestingKit.framework */; };
@@ -14,8 +16,6 @@
 		A7AA081614825387009DE810 /* libCTOpenSSLWrapper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AA07FE14825387009DE810 /* libCTOpenSSLWrapper.a */; };
 		A7AA081C14825387009DE810 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7AA081A14825387009DE810 /* InfoPlist.strings */; };
 		A7AA081F14825387009DE810 /* CTOpenSSLWrapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7AA081E14825387009DE810 /* CTOpenSSLWrapperTests.m */; };
-		A7AA082A148254DD009DE810 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AA0828148254DD009DE810 /* libcrypto.a */; };
-		A7AA082C148254DD009DE810 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AA0829148254DD009DE810 /* libssl.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A712DF4B14826BE700F4E399 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		A712DF4C14826BE700F4E399 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		A7AA07FE14825387009DE810 /* libCTOpenSSLWrapper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCTOpenSSLWrapper.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7AA080114825387009DE810 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A7AA080514825387009DE810 /* CTOpenSSLWrapper-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CTOpenSSLWrapper-Prefix.pch"; sourceTree = "<group>"; };
@@ -40,8 +42,6 @@
 		A7AA081B14825387009DE810 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A7AA081D14825387009DE810 /* CTOpenSSLWrapperTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTOpenSSLWrapperTests.h; sourceTree = "<group>"; };
 		A7AA081E14825387009DE810 /* CTOpenSSLWrapperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTOpenSSLWrapperTests.m; sourceTree = "<group>"; };
-		A7AA0828148254DD009DE810 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = ../OpenSSL/libcrypto.a; sourceTree = "<group>"; };
-		A7AA0829148254DD009DE810 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = ../OpenSSL/libssl.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,8 +50,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7AA080214825387009DE810 /* Foundation.framework in Frameworks */,
-				A7AA082A148254DD009DE810 /* libcrypto.a in Frameworks */,
-				A7AA082C148254DD009DE810 /* libssl.a in Frameworks */,
+				A712DF4D14826BE700F4E399 /* libcrypto.a in Frameworks */,
+				A712DF4E14826BE700F4E399 /* libssl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,8 +90,8 @@
 		A7AA080014825387009DE810 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A7AA0828148254DD009DE810 /* libcrypto.a */,
-				A7AA0829148254DD009DE810 /* libssl.a */,
+				A712DF4B14826BE700F4E399 /* libcrypto.a */,
+				A712DF4C14826BE700F4E399 /* libssl.a */,
 				A7AA080114825387009DE810 /* Foundation.framework */,
 				A7AA080F14825387009DE810 /* SenTestingKit.framework */,
 			);
@@ -280,7 +280,7 @@
 		A7AA082014825387009DE810 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
@@ -296,15 +296,21 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				HEADER_SEARCH_PATHS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = include;
 			};
 			name = Debug;
 		};
 		A7AA082114825387009DE810 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
@@ -313,8 +319,14 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				HEADER_SEARCH_PATHS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = include;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -328,6 +340,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../OpenSSL\"",
+					"\"$(SRCROOT)/..\"",
+					"\"$(SRCROOT)\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -344,6 +358,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../OpenSSL\"",
+					"\"$(SRCROOT)/..\"",
+					"\"$(SRCROOT)\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -408,6 +424,7 @@
 				A7AA082414825387009DE810 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A7AA082514825387009DE810 /* Build configuration list for PBXNativeTarget "CTOpenSSLWrapperTests" */ = {
 			isa = XCConfigurationList;
@@ -416,6 +433,7 @@
 				A7AA082714825387009DE810 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
