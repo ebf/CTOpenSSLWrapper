@@ -19,18 +19,23 @@
 #import <openssl/md5.h>
 
 void _CTOpenSSLSetup(void);
+void _CTOpenSSLCleanup(void);
+
+#pragma mark - private implementation
+
 void _CTOpenSSLSetup(void)
 {
     OpenSSL_add_all_algorithms();
     ERR_load_crypto_strings();
 }
 
-void _CTOpenSSLCleanup(void);
 void _CTOpenSSLCleanup(void)
 {
     EVP_cleanup();
     ERR_free_strings();
 }
+
+#pragma mark - symmetric encryption
 
 NSString *NSStringFromCTOpenSSLCipher(CTOpenSSLCipher cipher)
 {
