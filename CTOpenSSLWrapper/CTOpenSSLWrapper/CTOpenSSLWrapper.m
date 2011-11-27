@@ -8,16 +8,29 @@
 
 #import "CTOpenSSLWrapper.h"
 
-@implementation CTOpenSSLWrapper
-
-- (id)init
+NSString *NSStringFromCTOpenSSLCypher(CTOpenSSLCypher cypher)
 {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
+    NSString *cypherString = nil;
+    
+    switch (cypher) {
+        case CTOpenSSLCypherAES256:
+            cypherString = @"aes256";
+            break;
+            
+        default:
+            [NSException raise:NSInternalInconsistencyException format:@"CTOpenSSLCypher %i is not supported", cypher];
+            break;
     }
     
-    return self;
+    return cypherString;
 }
 
-@end
+NSData *CTOpenSSLSymmetricEncrypt(CTOpenSSLCypher cypher, NSData *symmetricKeyData, NSData *data)
+{
+    return nil;
+}
+
+NSData *CTOpenSSLSymmetricDecrypt(CTOpenSSLCypher cypher, NSData *symmetricKeyData, NSData *encryptedData)
+{
+    return nil;
+}

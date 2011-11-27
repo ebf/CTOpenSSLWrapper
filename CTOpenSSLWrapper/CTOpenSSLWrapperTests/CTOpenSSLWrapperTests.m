@@ -7,26 +7,24 @@
 //
 
 #import "CTOpenSSLWrapperTests.h"
+#import "CTOpenSSLWrapper.h"
 
 @implementation CTOpenSSLWrapperTests
 
-- (void)setUp
+- (void)testSymmetricEncryption
 {
-    [super setUp];
+    NSString *key = @"SuperAwesomeKey";
+    NSData *symmetricKeyData = [key dataUsingEncoding:NSUTF8StringEncoding];
     
-    // Set-up code here.
-}
-
-- (void)tearDown
-{
-    // Tear-down code here.
+    NSString *stringToBeDecrypted = @"SecretString";
+    NSData *rawData = [stringToBeDecrypted dataUsingEncoding:NSUTF8StringEncoding];
     
-    [super tearDown];
-}
-
-- (void)testExample
-{
-    STFail(@"Unit tests are not implemented yet in CTOpenSSLWrapperTests");
+    NSData *encryptedData = CTOpenSSLSymmetricEncrypt(CTOpenSSLCypherAES256, symmetricKeyData, rawData);
+    NSData *decryptedData = CTOpenSSLSymmetricDecrypt(CTOpenSSLCypherAES256, symmetricKeyData, encryptedData);
+    
+    NSString *decryptedString = [[NSString alloc] initWithData:decryptedData encoding:NSUTF8StringEncoding];
+    
+    STAssertEqualObjects(stringToBeDecrypted, decryptedString, @"string before and after symmetric encryption must be the same");
 }
 
 @end

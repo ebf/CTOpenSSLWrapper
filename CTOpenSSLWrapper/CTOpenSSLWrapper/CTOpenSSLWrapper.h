@@ -8,6 +8,26 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CTOpenSSLWrapper : NSObject
+typedef enum {
+    CTOpenSSLCypherAES256 = 0
+} CTOpenSSLCypher;
 
-@end
+NSString *NSStringFromCTOpenSSLCypher(CTOpenSSLCypher cypher);
+
+/**
+ @abstract  encrypts data symmetrically
+ @param     cypher: the cypher to be used
+ @param     symmetricKeyData: data which will be used as symmetric key
+ @param     data: data to be encrypted
+ @return    encrypted data
+ */
+NSData *CTOpenSSLSymmetricEncrypt(CTOpenSSLCypher cypher, NSData *symmetricKeyData, NSData *data);
+
+/**
+ @abstract  decrypts data symmetrically
+ @param     cypher: the cypher to be used
+ @param     symmetricKeyData: data which will be used as symmetric key
+ @param     encryptedData: data to be decrypted
+ @return    decrypted data
+ */
+NSData *CTOpenSSLSymmetricDecrypt(CTOpenSSLCypher cypher, NSData *symmetricKeyData, NSData *encryptedData);
