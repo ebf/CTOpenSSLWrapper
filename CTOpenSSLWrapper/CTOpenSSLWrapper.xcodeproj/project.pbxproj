@@ -338,6 +338,10 @@
 		A7AA082314825387009DE810 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv7,
+					armv6,
+				);
 				DSTROOT = /tmp/CTOpenSSLWrapper.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CTOpenSSLWrapper/CTOpenSSLWrapper-Prefix.pch";
@@ -356,6 +360,10 @@
 		A7AA082414825387009DE810 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv7,
+					armv6,
+				);
 				DSTROOT = /tmp/CTOpenSSLWrapper.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CTOpenSSLWrapper/CTOpenSSLWrapper-Prefix.pch";
