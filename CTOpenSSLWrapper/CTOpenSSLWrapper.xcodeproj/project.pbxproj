@@ -15,6 +15,8 @@
 		A73718D5157E878E00AA362C /* CTOpenSSLSymmetricEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = A73718D3157E878E00AA362C /* CTOpenSSLSymmetricEncryption.m */; };
 		A73718D9157E88C800AA362C /* CTOpenSSLAsymmetricEncryption.h in Headers */ = {isa = PBXBuildFile; fileRef = A73718D7157E88C800AA362C /* CTOpenSSLAsymmetricEncryption.h */; };
 		A73718DA157E88C800AA362C /* CTOpenSSLAsymmetricEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = A73718D8157E88C800AA362C /* CTOpenSSLAsymmetricEncryption.m */; };
+		A7371965157FE36400AA362C /* NSString+CTOpenSSL.h in Headers */ = {isa = PBXBuildFile; fileRef = A7371963157FE36400AA362C /* NSString+CTOpenSSL.h */; };
+		A7371966157FE36400AA362C /* NSString+CTOpenSSL.m in Sources */ = {isa = PBXBuildFile; fileRef = A7371964157FE36400AA362C /* NSString+CTOpenSSL.m */; };
 		A74A5A69157D3E64000C62B9 /* NSData+CTOpenSSL.h in Headers */ = {isa = PBXBuildFile; fileRef = A74A5A67157D3E64000C62B9 /* NSData+CTOpenSSL.h */; };
 		A74A5A6A157D3E64000C62B9 /* NSData+CTOpenSSL.m in Sources */ = {isa = PBXBuildFile; fileRef = A74A5A68157D3E64000C62B9 /* NSData+CTOpenSSL.m */; };
 		A74A5AF2157E81B2000C62B9 /* CTOpenSSLDigest.h in Headers */ = {isa = PBXBuildFile; fileRef = A74A5AF0157E81B2000C62B9 /* CTOpenSSLDigest.h */; };
@@ -45,6 +47,8 @@
 		A73718D3157E878E00AA362C /* CTOpenSSLSymmetricEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTOpenSSLSymmetricEncryption.m; sourceTree = "<group>"; };
 		A73718D7157E88C800AA362C /* CTOpenSSLAsymmetricEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTOpenSSLAsymmetricEncryption.h; sourceTree = "<group>"; };
 		A73718D8157E88C800AA362C /* CTOpenSSLAsymmetricEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTOpenSSLAsymmetricEncryption.m; sourceTree = "<group>"; };
+		A7371963157FE36400AA362C /* NSString+CTOpenSSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CTOpenSSL.h"; sourceTree = "<group>"; };
+		A7371964157FE36400AA362C /* NSString+CTOpenSSL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CTOpenSSL.m"; sourceTree = "<group>"; };
 		A74A5A67157D3E64000C62B9 /* NSData+CTOpenSSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CTOpenSSL.h"; sourceTree = "<group>"; };
 		A74A5A68157D3E64000C62B9 /* NSData+CTOpenSSL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CTOpenSSL.m"; sourceTree = "<group>"; };
 		A74A5AF0157E81B2000C62B9 /* CTOpenSSLDigest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTOpenSSLDigest.h; sourceTree = "<group>"; };
@@ -106,6 +110,15 @@
 			path = CTOpenSSLAsymmetricEncryption;
 			sourceTree = "<group>";
 		};
+		A7371961157FE35700AA362C /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				A7371963157FE36400AA362C /* NSString+CTOpenSSL.h */,
+				A7371964157FE36400AA362C /* NSString+CTOpenSSL.m */,
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
 		A74A5A64157D3E50000C62B9 /* FrameworkAddtions */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				A74A5A66157D3E50000C62B9 /* NSData */,
+				A7371961157FE35700AA362C /* NSString */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -222,6 +236,7 @@
 				A74A5AF2157E81B2000C62B9 /* CTOpenSSLDigest.h in Headers */,
 				A73718D4157E878E00AA362C /* CTOpenSSLSymmetricEncryption.h in Headers */,
 				A73718D9157E88C800AA362C /* CTOpenSSLAsymmetricEncryption.h in Headers */,
+				A7371965157FE36400AA362C /* NSString+CTOpenSSL.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +343,7 @@
 				A74A5AF3157E81B2000C62B9 /* CTOpenSSLDigest.m in Sources */,
 				A73718D5157E878E00AA362C /* CTOpenSSLSymmetricEncryption.m in Sources */,
 				A73718DA157E88C800AA362C /* CTOpenSSLAsymmetricEncryption.m in Sources */,
+				A7371966157FE36400AA362C /* NSString+CTOpenSSL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

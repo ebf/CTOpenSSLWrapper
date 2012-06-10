@@ -101,4 +101,14 @@
     STAssertFalse(shouldNotBeSigned, @"verification/signing not working");
 }
 
+- (void)testHexadecimalEncoding
+{
+    NSData *privateKeyData = CTOpenSSLGeneratePrivateRSAKey(1024, CTOpenSSLPrivateKeyFormatPEM);
+    
+    NSString *privateKeyInHexadecimal = privateKeyData.hexadecimalValue;
+    NSData *decryptedPrivateKeyData = privateKeyInHexadecimal.dataFromHexadecimalString;
+    
+    STAssertEqualObjects(privateKeyData, decryptedPrivateKeyData, @"converting to and from hex value should not change data.");
+}
+
 @end

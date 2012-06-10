@@ -13,5 +13,6 @@
 #import "CTOpenSSLAsymmetricEncryption.h"
 
 #import "NSData+CTOpenSSL.h"
+#import "NSString+CTOpenSSL.h"
 
 void CTOpenSSLInitialize(void);
