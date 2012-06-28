@@ -7,6 +7,8 @@
 //
 
 #import "NSString+CTOpenSSL.h"
+#import "CTOpenSSLDigest.h"
+#import "NSData+CTOpenSSL.h"
 
 @implementation NSString (CTOpenSSL)
 
@@ -28,6 +30,16 @@
     *index = '\0';
     
     return [NSData dataWithBytesNoCopy:dataBuffer length:length / 2 freeWhenDone:YES];
+}
+
+- (NSString *)MD5Digest
+{
+    return CTOpenSSLGenerateDigestFromData([self dataUsingEncoding:NSUTF8StringEncoding], CTOpenSSLDigestTypeMD5).hexadecimalValue;
+}
+
+- (NSString *)SHA512Digest
+{
+    return CTOpenSSLGenerateDigestFromData([self dataUsingEncoding:NSUTF8StringEncoding], CTOpenSSLDigestTypeSHA512).hexadecimalValue;
 }
 
 @end
