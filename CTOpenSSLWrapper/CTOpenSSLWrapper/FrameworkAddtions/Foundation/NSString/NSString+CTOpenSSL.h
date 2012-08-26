@@ -9,6 +9,7 @@
 @interface NSString (CTOpenSSL)
 
 @property (nonatomic, readonly) NSData *dataFromHexadecimalString;
+@property (nonatomic, readonly) NSData *dataFromBase64EncodedString;
 
 @property (nonatomic, readonly) NSString *MD5Digest;
 @property (nonatomic, readonly) NSString *SHA512Digest;
