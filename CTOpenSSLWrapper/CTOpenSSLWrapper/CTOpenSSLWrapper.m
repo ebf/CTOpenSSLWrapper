@@ -23,6 +23,9 @@
 
 void CTOpenSSLInitialize(void)
 {
-    OpenSSL_add_all_algorithms();
-    ERR_load_crypto_strings();
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        OpenSSL_add_all_algorithms();
+        ERR_load_crypto_strings();
+    });
 }
