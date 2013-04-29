@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name          = 'CTOpenSSLWrapper'
-  spec.version       = '1.0.0'
+  spec.version       = '1.0.1'
   spec.platform      = :ios, '6.0'
   spec.license       = 'MIT'
   spec.source        = { :git => 'https://github.com/ebf/CTOpenSSLWrapper.git', :tag => spec.version.to_s }
@@ -10,9 +10,6 @@ Pod::Spec.new do |spec|
   spec.homepage      = 'https://github.com/ebf/CTOpenSSLWrapper'
   spec.summary       = 'Objc OpenSSL wrapper.'
   spec.author        = { 'Oliver Letterer' => 'oliver.letterer@gmail.com' }
-
-  spec.xcconfig       = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/CTOpenSSLWrapper/CTOpenSSLWrapper"', 
-                          'USER_HEADER_SEARCH_PATHS' => '"$(inherited) $(PODS_ROOT)/CTOpenSSLWrapper/include"' }
 
   spec.dependency     'OpenSSL', '1.0.1c'
 
