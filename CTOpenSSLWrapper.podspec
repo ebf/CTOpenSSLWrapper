@@ -3,7 +3,7 @@ Pod::Spec.new do |spec|
   spec.version       = '1.0.0'
   spec.platform      = :ios, '6.0'
   spec.license       = 'MIT'
-  spec.source        = { :git => 'git@github.com:ebf/CTOpenSSLWrapper.git', :tag => spec.version.to_s }
+  spec.source        = { :git => 'https://github.com/ebf/CTOpenSSLWrapper.git', :tag => spec.version.to_s }
   spec.source_files  = 'CTOpenSSLWrapper/CTOpenSSLWrapper/*.{h,m}', 'CTOpenSSLWrapper/CTOpenSSLWrapper/Framework Additions/**/**/*.{h,m}', 'CTOpenSSLWrapper/CTOpenSSLWrapper/**/*.{h,m}'
   spec.frameworks    = 'Foundation'
   spec.requires_arc  = true
