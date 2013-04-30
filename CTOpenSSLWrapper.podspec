@@ -12,10 +12,4 @@ Pod::Spec.new do |spec|
   spec.author        = { 'Oliver Letterer' => 'oliver.letterer@gmail.com' }
 
   spec.dependency     'OpenSSL', '1.0.1c'
-
-  spec.prefix_header_contents = <<-EOS
-#ifdef __OBJC__
-    #import <Foundation/Foundation.h>
-#endif
-EOS
 end
