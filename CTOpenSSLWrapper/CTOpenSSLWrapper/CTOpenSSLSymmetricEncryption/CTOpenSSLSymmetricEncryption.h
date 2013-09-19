@@ -19,7 +19,7 @@ NSString *NSStringFromCTOpenSSLCipher(CTOpenSSLCipher cipher);
  @param     data: data to be encrypted
  @return    encrypted data
  */
-NSData *CTOpenSSLSymmetricEncrypt(CTOpenSSLCipher cipher, NSData *symmetricKeyData, NSData *data);
+BOOL CTOpenSSLSymmetricEncrypt(CTOpenSSLCipher cipher, NSData *symmetricKeyData, NSData *data, NSData **encryptedData);
 
 /**
  @abstract  decrypts data symmetrically
@@ -28,4 +28,4 @@ NSData *CTOpenSSLSymmetricEncrypt(CTOpenSSLCipher cipher, NSData *symmetricKeyDa
  @param     encryptedData: data to be decrypted
  @return    decrypted data
  */
-NSData *CTOpenSSLSymmetricDecrypt(CTOpenSSLCipher cipher, NSData *symmetricKeyData, NSData *encryptedData);
+BOOL CTOpenSSLSymmetricDecrypt(CTOpenSSLCipher cipher, NSData *symmetricKeyData, NSData *encryptedData, NSData **decryptedData);

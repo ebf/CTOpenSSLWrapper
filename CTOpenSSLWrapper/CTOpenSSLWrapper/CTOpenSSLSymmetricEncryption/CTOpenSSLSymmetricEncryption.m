@@ -35,7 +35,7 @@ NSString *NSStringFromCTOpenSSLCipher(CTOpenSSLCipher cipher)
     return cipherString;
 }
 
-NSData *CTOpenSSLSymmetricEncrypt(CTOpenSSLCipher CTCipher, NSData *symmetricKeyData, NSData *data)
+BOOL CTOpenSSLSymmetricEncrypt(CTOpenSSLCipher CTCipher, NSData *symmetricKeyData, NSData *data, NSData **encryptedData)
 {
     CTOpenSSLInitialize();
     
@@ -52,14 +52,15 @@ NSData *CTOpenSSLSymmetricEncrypt(CTOpenSSLCipher CTCipher, NSData *symmetricKey
     const EVP_CIPHER *cipher = EVP_get_cipherbyname(cipherName.UTF8String);
     
     if (!cipher) {
-        [NSException raise:NSInternalInconsistencyException format:@"unable to get cipher with name %@ type %d", cipherName, CTCipher];
+        DLog(@"unable to get cipher with name %@", cipherName);
+        return NO;
     }
     
     EVP_BytesToKey(cipher, EVP_md5(), NULL, symmetricKeyData.bytes, (int)symmetricKeyData.length, 1, evp_key, initializationVector);
     EVP_CIPHER_CTX_init(&cipherContext);
     
     if (!EVP_EncryptInit(&cipherContext, cipher, evp_key, initializationVector)) {
-        [NSException raise:NSInternalInconsistencyException format:@"EVP_EncryptInit() failed!"];
+        return NO;
     }
     EVP_CIPHER_CTX_set_key_length(&cipherContext, EVP_MAX_KEY_LENGTH);
     
@@ -67,28 +68,30 @@ NSData *CTOpenSSLSymmetricEncrypt(CTOpenSSLCipher CTCipher, NSData *symmetricKey
     int outputLength = 0;
     
     if (!outputBuffer) {
-        [NSException raise:NSInternalInconsistencyException format:@"Cannot allocate memory for buffer!"];
+        DLog(@"Cannot allocate memory for buffer!");
+        return NO;
     }
     
     if (!EVP_EncryptUpdate(&cipherContext, outputBuffer, &outputLength, inputBytes, inputLength)) {
-        [NSException raise:NSInternalInconsistencyException format:@"EVP_EncryptUpdate() failed!"];
+        return NO;
     }
     
     if (!EVP_EncryptFinal(&cipherContext, outputBuffer + outputLength, &temporaryLength)) {
-        [NSException raise:NSInternalInconsistencyException format:@"EVP_EncryptFinal() failed!"];
+        DLog(@"EVP_EncryptFinal() failed!");
+        return NO;
     }
     
     outputLength += temporaryLength;
     EVP_CIPHER_CTX_cleanup(&cipherContext);
     
-    NSData *encryptedData = [NSData dataWithBytesNoCopy:outputBuffer length:outputLength freeWhenDone:YES];
-    
-    return encryptedData;
+    *encryptedData = [NSData dataWithBytesNoCopy:outputBuffer length:outputLength freeWhenDone:YES];
+    return YES;
 }
 
-NSData *CTOpenSSLSymmetricDecrypt(CTOpenSSLCipher CTCipher, NSData *symmetricKeyData, NSData *encryptedData)
+BOOL CTOpenSSLSymmetricDecrypt(CTOpenSSLCipher CTCipher, NSData *symmetricKeyData, NSData *encryptedData, NSData **decryptedData)
 {
     CTOpenSSLInitialize();
+    NSCParameterAssert(decryptedData);
     
     unsigned char *inputBytes = (unsigned char *)encryptedData.bytes;
     unsigned char *outputBuffer = NULL;
@@ -105,7 +108,8 @@ NSData *CTOpenSSLSymmetricDecrypt(CTOpenSSLCipher CTCipher, NSData *symmetricKey
     NSString *cipherName = NSStringFromCTOpenSSLCipher(CTCipher);
     cipher = EVP_get_cipherbyname(cipherName.UTF8String);
     if (!cipher) {
-        [NSException raise:NSInternalInconsistencyException format:@"unable to get cipher with name %@", cipherName];
+        DLog(@"unable to get cipher with name %@", cipherName);
+        return NO;
     }
     
     EVP_BytesToKey(cipher, EVP_md5(), NULL, symmetricKeyData.bytes, (int)symmetricKeyData.length, 1, envelopeKey, initializationVector);
@@ -113,7 +117,8 @@ NSData *CTOpenSSLSymmetricDecrypt(CTOpenSSLCipher CTCipher, NSData *symmetricKey
     EVP_CIPHER_CTX_init(&cipherContext);
     
     if (!EVP_DecryptInit(&cipherContext, cipher, envelopeKey, initializationVector)) {
-        [NSException raise:NSInternalInconsistencyException format:@"EVP_DecryptInit() failed!"];
+        DLog(@"EVP_DecryptInit() failed!");
+        return NO;
     }
     EVP_CIPHER_CTX_set_key_length(&cipherContext, EVP_MAX_KEY_LENGTH);
     
@@ -124,25 +129,28 @@ NSData *CTOpenSSLSymmetricDecrypt(CTOpenSSLCipher CTCipher, NSData *symmetricKey
     }
     
     if (!outputBuffer) {
-        [NSException raise:NSInternalInconsistencyException format:@"Cannot allocate memory for buffer!"];
+        DLog(@"Cannot allocate memory for buffer!");
+        return NO;
     }
     
     if (!EVP_DecryptUpdate(&cipherContext, outputBuffer, &outputLength, inputBytes, inputLength)) {
-        [NSException raise:NSInternalInconsistencyException format:@"EVP_DecryptUpdate() failed!"];
+        DLog(@"EVP_DecryptUpdate() failed!");
+        return NO;
     }
     
     if (!EVP_DecryptFinal(&cipherContext, outputBuffer + outputLength, &temporaryLength)) {
-        [NSException raise:NSInternalInconsistencyException format:@"EVP_DecryptFinal() failed!"];
+        DLog(@"EVP_DecryptFinal() failed!");
+        return NO;
     }
     
     outputLength += temporaryLength;
     EVP_CIPHER_CTX_cleanup(&cipherContext);
     
-    NSData *decryptedData = [NSData dataWithBytes:outputBuffer length:outputLength];
+    *decryptedData = [NSData dataWithBytes:outputBuffer length:outputLength];
     
     if (outputBuffer) {
         free(outputBuffer);
     }
     
-    return decryptedData;
+    return YES;
 }
