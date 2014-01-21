@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name          = 'CTOpenSSLWrapper'
-  spec.version       = '1.0.1'
+  spec.version       = '1.0.2'
   spec.platform      = :ios, '6.0'
   spec.license       = 'MIT'
   spec.source        = { :git => 'https://github.com/ebf/CTOpenSSLWrapper.git', :tag => spec.version.to_s }
