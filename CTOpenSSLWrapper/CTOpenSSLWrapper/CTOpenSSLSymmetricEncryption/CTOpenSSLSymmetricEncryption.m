@@ -52,7 +52,7 @@ BOOL CTOpenSSLSymmetricEncrypt(CTOpenSSLCipher CTCipher, NSData *symmetricKeyDat
     const EVP_CIPHER *cipher = EVP_get_cipherbyname(cipherName.UTF8String);
     
     if (!cipher) {
-        DLog(@"unable to get cipher with name %@", cipherName);
+        NSLog(@"unable to get cipher with name %@", cipherName);
         return NO;
     }
     
@@ -68,7 +68,7 @@ BOOL CTOpenSSLSymmetricEncrypt(CTOpenSSLCipher CTCipher, NSData *symmetricKeyDat
     int outputLength = 0;
     
     if (!outputBuffer) {
-        DLog(@"Cannot allocate memory for buffer!");
+        NSLog(@"Cannot allocate memory for buffer!");
         return NO;
     }
     
@@ -77,7 +77,7 @@ BOOL CTOpenSSLSymmetricEncrypt(CTOpenSSLCipher CTCipher, NSData *symmetricKeyDat
     }
     
     if (!EVP_EncryptFinal(&cipherContext, outputBuffer + outputLength, &temporaryLength)) {
-        DLog(@"EVP_EncryptFinal() failed!");
+        NSLog(@"EVP_EncryptFinal() failed!");
         return NO;
     }
     
@@ -108,7 +108,7 @@ BOOL CTOpenSSLSymmetricDecrypt(CTOpenSSLCipher CTCipher, NSData *symmetricKeyDat
     NSString *cipherName = NSStringFromCTOpenSSLCipher(CTCipher);
     cipher = EVP_get_cipherbyname(cipherName.UTF8String);
     if (!cipher) {
-        DLog(@"unable to get cipher with name %@", cipherName);
+        NSLog(@"unable to get cipher with name %@", cipherName);
         return NO;
     }
     
@@ -117,7 +117,7 @@ BOOL CTOpenSSLSymmetricDecrypt(CTOpenSSLCipher CTCipher, NSData *symmetricKeyDat
     EVP_CIPHER_CTX_init(&cipherContext);
     
     if (!EVP_DecryptInit(&cipherContext, cipher, envelopeKey, initializationVector)) {
-        DLog(@"EVP_DecryptInit() failed!");
+        NSLog(@"EVP_DecryptInit() failed!");
         return NO;
     }
     EVP_CIPHER_CTX_set_key_length(&cipherContext, EVP_MAX_KEY_LENGTH);
@@ -129,17 +129,17 @@ BOOL CTOpenSSLSymmetricDecrypt(CTOpenSSLCipher CTCipher, NSData *symmetricKeyDat
     }
     
     if (!outputBuffer) {
-        DLog(@"Cannot allocate memory for buffer!");
+        NSLog(@"Cannot allocate memory for buffer!");
         return NO;
     }
     
     if (!EVP_DecryptUpdate(&cipherContext, outputBuffer, &outputLength, inputBytes, inputLength)) {
-        DLog(@"EVP_DecryptUpdate() failed!");
+        NSLog(@"EVP_DecryptUpdate() failed!");
         return NO;
     }
     
     if (!EVP_DecryptFinal(&cipherContext, outputBuffer + outputLength, &temporaryLength)) {
-        DLog(@"EVP_DecryptFinal() failed!");
+        NSLog(@"EVP_DecryptFinal() failed!");
         return NO;
     }
     
