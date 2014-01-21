@@ -10,7 +10,6 @@
 #import "CTOpenSSLDigest.h"
 #import "NSData+CTOpenSSL.h"
 
-static const char CTBase64EncodingTable[64] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 static const short CTBase64DecodingTable[256] = {
     -2, -2, -2, -2, -2, -2, -2, -2, -2, -1, -1, -2, -1, -1, -2, -2,
     -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2,
@@ -38,7 +37,7 @@ static const short CTBase64DecodingTable[256] = {
     NSUInteger length = strlen(bytes);
     unsigned char *dataBuffer = (unsigned char *)malloc(length / 2 + 1);
     unsigned char *index = dataBuffer;
-    
+
     while ((*bytes) && (*(bytes + 1))) {
         char encoder[3] = {'\0', '\0', '\0'};
         encoder[0] = *bytes;
@@ -48,20 +47,20 @@ static const short CTBase64DecodingTable[256] = {
         bytes+=2;
     }
     *index = '\0';
-    
+
     return [NSData dataWithBytesNoCopy:dataBuffer length:length / 2 freeWhenDone:YES];
 }
 
 - (NSData *)dataFromBase64EncodedString
 {
     const char * objPointer = [self cStringUsingEncoding:NSASCIIStringEncoding];
-    int intLength = strlen(objPointer);
+    size_t intLength = strlen(objPointer);
     int intCurrent;
     int i = 0, j = 0, k;
-    
+
     unsigned char * objResult;
     objResult = calloc(intLength, sizeof(char));
-    
+
     // Run through the whole string, converting as we go
     while ( ((intCurrent = *objPointer++) != '\0') && (intLength-- > 0) ) {
         if (intCurrent == '=') {
@@ -72,7 +71,7 @@ static const short CTBase64DecodingTable[256] = {
             }
             continue;
         }
-        
+
         intCurrent = CTBase64DecodingTable[intCurrent];
         if (intCurrent == -1) {
             // we're at a whitespace -- simply skip over
@@ -82,29 +81,29 @@ static const short CTBase64DecodingTable[256] = {
             free(objResult);
             return nil;
         }
-        
+
         switch (i % 4) {
             case 0:
                 objResult[j] = intCurrent << 2;
                 break;
-                
+
             case 1:
                 objResult[j++] |= intCurrent >> 4;
                 objResult[j] = (intCurrent & 0x0f) << 4;
                 break;
-                
+
             case 2:
                 objResult[j++] |= intCurrent >>2;
                 objResult[j] = (intCurrent & 0x03) << 6;
                 break;
-                
+
             case 3:
                 objResult[j++] |= intCurrent;
                 break;
         }
         i++;
     }
-    
+
     // mop things up if we ended on a boundary
     k = j;
     if (intCurrent == '=') {
@@ -113,7 +112,7 @@ static const short CTBase64DecodingTable[256] = {
                 // Invalid state
                 free(objResult);
                 return nil;
-                
+
             case 2:
                 k++;
                 // flow through
@@ -121,7 +120,7 @@ static const short CTBase64DecodingTable[256] = {
                 objResult[k] = 0;
         }
     }
-    
+
     // Cleanup and setup the return NSData
     NSData * objData = [[NSData alloc] initWithBytes:objResult length:j];
     free(objResult);
