@@ -38,7 +38,7 @@ NSString *NSStringFromCTOpenSSLDigestType(CTOpenSSLDigestType digestType)
             [NSException raise:NSInternalInconsistencyException format:@"digestType not supported %d", digestType];
             break;
     }
-    
+
     return nil;
 }
 
@@ -61,39 +61,39 @@ int CTOpenSSLRSASignTypeFromDigestType(CTOpenSSLDigestType digestType)
             [NSException raise:NSInternalInconsistencyException format:@"digestType not supported %d", digestType];
             break;
     }
-    
+
     return -1;
 }
 
 NSData *CTOpenSSLGenerateDigestFromData(NSData *data, CTOpenSSLDigestType digestType)
 {
     CTOpenSSLInitialize();
-    
+
     unsigned char outputBuffer[EVP_MAX_MD_SIZE];
     unsigned int outputLength;
-    unsigned int inputLength = data.length;
+    unsigned long inputLength = data.length;
     unsigned char *inputBytes = (unsigned char *)data.bytes;
     EVP_MD_CTX context;
-    
+
     NSString *digestName = NSStringFromCTOpenSSLDigestType(digestType);
     const EVP_MD *digest = EVP_get_digestbyname(digestName.UTF8String);
-    
+
     if (!digest) {
         [NSException raise:NSInternalInconsistencyException format:@"digest of type (%d %@) not found", digestType, digestName];
     }
-    
+
     EVP_MD_CTX_init(&context);
     EVP_DigestInit(&context, digest);
-    
+
     if(!EVP_DigestUpdate(&context,inputBytes,inputLength)) {
         [NSException raise:NSInternalInconsistencyException format:@"EVP_DigestUpdate() failed"];
     }
-    
+
     if (!EVP_DigestFinal(&context, outputBuffer, &outputLength)) {
         [NSException raise:NSInternalInconsistencyException format:@"EVP_DigestFinal() failed"];
     }
-    
+
     EVP_MD_CTX_cleanup(&context);
-    
+
     return [NSData dataWithBytes:outputBuffer length:outputLength];
 }
