@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name          = 'CTOpenSSLWrapper'
-  spec.version       = '1.1.2'
+  spec.version       = '1.2.0'
   spec.platform      = :ios, '6.0'
   spec.license       = 'MIT'
   spec.source        = { :git => 'https://github.com/ebf/CTOpenSSLWrapper.git', :tag => spec.version.to_s }
@@ -11,5 +11,5 @@ Pod::Spec.new do |spec|
   spec.summary       = 'Objc OpenSSL wrapper.'
   spec.author        = { 'Oliver Letterer' => 'oliver.letterer@gmail.com' }
   
-  spec.dependency 'OpenSSL-Universal', '~> 1.0'
+  spec.dependency 'OpenSSL-Universal', '1.0.1g'
 end
