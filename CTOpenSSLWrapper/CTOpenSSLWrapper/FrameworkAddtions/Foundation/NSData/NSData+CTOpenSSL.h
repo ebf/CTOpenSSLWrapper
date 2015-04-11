@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 Home. All rights reserved.
 //
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSData (CTOpenSSL)
 
 @property (nonatomic, readonly) NSString *base64EncodedString;
@@ -14,3 +16,5 @@
 @property (nonatomic, readonly) NSString *hexadecimalValue;
 
 @end
+
+NS_ASSUME_NONNULL_END

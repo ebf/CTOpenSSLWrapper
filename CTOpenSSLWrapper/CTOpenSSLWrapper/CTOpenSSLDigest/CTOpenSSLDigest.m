@@ -34,12 +34,7 @@ NSString *NSStringFromCTOpenSSLDigestType(CTOpenSSLDigestType digestType)
         case CTOpenSSLDigestTypeSHA512:
             return @"SHA512";
             break;
-        default:
-            [NSException raise:NSInternalInconsistencyException format:@"digestType not supported %d", digestType];
-            break;
     }
-
-    return nil;
 }
 
 int CTOpenSSLRSASignTypeFromDigestType(CTOpenSSLDigestType digestType)

@@ -6,6 +6,8 @@
 //  Copyright 2012 Home. All rights reserved.
 //
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef enum {
     CTOpenSSLDigestTypeMD5,
     CTOpenSSLDigestTypeSHA1,
@@ -18,3 +20,5 @@ NSString *NSStringFromCTOpenSSLDigestType(CTOpenSSLDigestType digestType);
 int CTOpenSSLRSASignTypeFromDigestType(CTOpenSSLDigestType digestType);
 
 NSData *CTOpenSSLGenerateDigestFromData(NSData *data, CTOpenSSLDigestType digestType);
+
+NS_ASSUME_NONNULL_END

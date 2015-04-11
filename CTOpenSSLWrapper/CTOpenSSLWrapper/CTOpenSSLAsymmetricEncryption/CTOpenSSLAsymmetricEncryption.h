@@ -8,6 +8,8 @@
 
 #import "CTOpenSSLDigest.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef enum {
     CTOpenSSLPrivateKeyFormatDER = 0,
     CTOpenSSLPrivateKeyFormatPEM
@@ -48,3 +50,5 @@ NSData *CTOpenSSLRSASignWithPrivateKey(NSData *privateKeyData, NSData *data, CTO
  @abstract  vertifies signature with publicKeyData.
  */
 BOOL CTOpenSSLRSAVerifyWithPublicKey(NSData *publicKeyData, NSData *data, NSData *signature, CTOpenSSLDigestType digestType);
+
+NS_ASSUME_NONNULL_END

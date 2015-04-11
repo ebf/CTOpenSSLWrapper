@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 Home. All rights reserved.
 //
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSString (CTOpenSSL)
 
 @property (nonatomic, readonly) NSData *dataFromHexadecimalString;
@@ -15,3 +17,5 @@
 @property (nonatomic, readonly) NSString *SHA512Digest;
 
 @end
+
+NS_ASSUME_NONNULL_END
