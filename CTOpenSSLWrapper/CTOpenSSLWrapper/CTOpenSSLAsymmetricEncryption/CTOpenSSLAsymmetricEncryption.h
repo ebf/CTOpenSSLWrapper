@@ -34,12 +34,30 @@ NSData *CTOpenSSLExtractPublicKeyFromPrivateRSAKey(NSData *privateKeyData);
 NSData *CTOpenSSLRSAEncrypt(NSData *publicKeyData, NSData *data);
 
 /**
+ @abstract  encrypts data asymmetrically
+ @param     publicKeyData: data representing the public key
+ @param     data: data to be encrypted
+ @param     padding: RSA Padding type
+ @return    encrypted data
+ */
+NSData *CTOpenSSLRSAEncryptWithPadding(NSData *publicKeyData, NSData *data, int padding);
+
+/**
  @abstract  decrypts data asymmetrically
  @param     privateKeyData: data representing the private key
  @param     data: data to be decrypted
  @return    dectryped data
  */
 NSData *CTOpenSSLRSADecrypt(NSData *privateKeyData, NSData *data);
+
+/**
+ @abstract  decrypts data asymmetrically
+ @param     privateKeyData: data representing the private key
+ @param     data: data to be decrypted
+ @param     padding: RSA Padding type
+ @return    dectryped data
+ */
+NSData *CTOpenSSLRSADecryptWithPadding(NSData *privateKeyData, NSData *data, int padding);
 
 /**
  @abstract  generates signature of data with privateKeyData.

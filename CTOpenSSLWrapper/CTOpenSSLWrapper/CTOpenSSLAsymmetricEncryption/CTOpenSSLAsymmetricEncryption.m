@@ -95,6 +95,11 @@ NSData *CTOpenSSLExtractPublicKeyFromPrivateRSAKey(NSData *privateKeyData)
 
 NSData *CTOpenSSLRSAEncrypt(NSData *publicKeyData, NSData *data)
 {
+	return CTOpenSSLRSAEncryptWithPadding(publicKeyData, data, RSA_PKCS1_PADDING);
+}
+
+NSData *CTOpenSSLRSAEncryptWithPadding(NSData *publicKeyData, NSData *data, int padding)
+{
     CTOpenSSLInitialize();
 
     unsigned char *inputBytes = (unsigned char *)data.bytes;
@@ -114,7 +119,7 @@ NSData *CTOpenSSLRSAEncrypt(NSData *publicKeyData, NSData *data)
     unsigned char *outputBuffer = (unsigned char *)malloc(RSA_size(publicRSA));
     int outputLength = 0;
 
-    if (!(outputLength = RSA_public_encrypt((int)inputLength, inputBytes, (unsigned char *)outputBuffer, publicRSA, RSA_PKCS1_PADDING))) {
+    if (!(outputLength = RSA_public_encrypt((int)inputLength, inputBytes, (unsigned char *)outputBuffer, publicRSA, padding))) {
         [NSException raise:NSInternalInconsistencyException format:@"RSA public encryption RSA_public_encrypt() failed"];
     }
 
@@ -131,6 +136,11 @@ NSData *CTOpenSSLRSAEncrypt(NSData *publicKeyData, NSData *data)
 }
 
 NSData *CTOpenSSLRSADecrypt(NSData *privateKeyData, NSData *data)
+{
+	return CTOpenSSLRSADecryptWithPadding(privateKeyData, data, RSA_PKCS1_PADDING);
+}
+
+NSData *CTOpenSSLRSADecryptWithPadding(NSData *privateKeyData, NSData *data, int padding)
 {
     CTOpenSSLInitialize();
 
@@ -156,7 +166,7 @@ NSData *CTOpenSSLRSADecrypt(NSData *privateKeyData, NSData *data)
     unsigned char *outputBuffer = (unsigned char *)malloc(RSA_size(privateRSA));
     int outputLength = 0;
 
-    if (!(outputLength = RSA_private_decrypt((int)inputLength, inputBytes, outputBuffer, privateRSA, RSA_PKCS1_PADDING))) {
+    if (!(outputLength = RSA_private_decrypt((int)inputLength, inputBytes, outputBuffer, privateRSA, padding))) {
         [NSException raise:NSInternalInconsistencyException format:@"RSA private decrypt RSA_private_decrypt() failed"];
     }
 
