@@ -1,29 +1,42 @@
-Pod::Spec.new do |spec|
-  spec.name          = 'CTOpenSSLWrapper'
-  spec.version       = '1.4.0'
-  spec.license       = 'MIT'
-  spec.source        = { :git => 'https://github.com/ebf/CTOpenSSLWrapper.git', :tag => spec.version.to_s }
-  spec.frameworks    = 'Foundation'
-  spec.requires_arc  = true
-  spec.homepage      = 'https://github.com/ebf/CTOpenSSLWrapper'
-  spec.summary       = 'Objc OpenSSL wrapper.'
-  spec.author        = { 'Oliver Letterer' => 'oliver.letterer@gmail.com' }
+Pod::Spec.new do |s|
+  s.name          = 'CTOpenSSLWrapper'
+  s.version       = '1.4.1'
+  s.license       = 'MIT'
+  s.source        = { :git => 'https://github.com/ebf/CTOpenSSLWrapper.git', :tag => s.version.to_s }
+  s.frameworks    = 'Foundation'
+  s.requires_arc  = true
+  s.homepage      = 'https://github.com/ebf/CTOpenSSLWrapper'
+  s.summary       = 'Objc OpenSSL wrapper.'
+  s.author        = { 'Oliver Letterer' => 'oliver.letterer@gmail.com' }
 
-  spec.platforms     = { :ios => '8.0', :osx => '10.11', :tvos => '9.0' }
+  s.platforms     = { :ios => '8.0', :tvos => '9.0' }
+  s.default_subspec = 'CTOpenSSLWrapper_iOS'
 
-  spec.default_subspec = 'CTOpenSSLWrapper'
-  spec.subspec 'CTOpenSSLWrapper' do |subspec|
-    subspec.source_files  = 'CTOpenSSLWrapper/*.{h,m}', 'CTOpenSSLWrapper/Framework Additions/**/**/*.{h,m}', 'CTOpenSSLWrapper/**/*.{h,m}'
-    subspec.dependency "CTOpenSSLWrapper/OpenSSL"
+  s.subspec 'CTOpenSSLWrapper_iOS' do |ss|
+    ss.source_files  = 'CTOpenSSLWrapper/*.{h,m}', 'CTOpenSSLWrapper/Framework Additions/**/**/*.{h,m}', 'CTOpenSSLWrapper/**/*.{h,m}'
+    ss.dependency "CTOpenSSLWrapper/OpenSSL_iOS"
   end
 
-  spec.subspec 'OpenSSL' do |subspec|
-    subspec.source_files        = 'include/openssl/*.h'
-    subspec.public_header_files = 'include/openssl/*.h'
-    subspec.header_dir          = 'openssl'
+  s.subspec 'CTOpenSSLWrapper_tvOS' do |ss|
+    ss.source_files  = 'CTOpenSSLWrapper/*.{h,m}', 'CTOpenSSLWrapper/Framework Additions/**/**/*.{h,m}', 'CTOpenSSLWrapper/**/*.{h,m}'
+    ss.dependency "CTOpenSSLWrapper/OpenSSL_tvOS"
+  end
 
-    subspec.ios.vendored_libraries  = 'lib/libcrypto_iOS.a', 'lib/libssl_iOS.a'
-    subspec.tvos.vendored_libraries = 'lib/libcrypto_tvOS.a', 'lib/libssl_tvOS.a'
-    subspec.osx.vendored_libraries = 'lib/libcrypto_Mac.a', 'lib/libssl_Mac.a'
+  s.subspec "OpenSSL_iOS" do |ss|
+    ss.source_files        = 'include/openssl/*.h'
+    ss.public_header_files = 'include/openssl/*.h'
+    ss.header_dir          = 'openssl'
+
+    ss.ios.vendored_libraries  = 'lib/libcrypto_iOS.a', 'lib/libssl_iOS.a'
+    ss.tvos.vendored_libraries = 'lib/libcrypto_tvOS.a', 'lib/libssl_tvOS.a'
+  end
+
+  s.subspec "OpenSSL_tvOS" do |ss|
+    ss.source_files        = 'include/openssl/*.h'
+    ss.public_header_files = 'include/openssl/*.h'
+    ss.header_dir          = 'openssl'
+
+    ss.ios.vendored_libraries  = 'lib/libcrypto_iOS.a', 'lib/libssl_iOS.a'
+    ss.tvos.vendored_libraries = 'lib/libcrypto_tvOS.a', 'lib/libssl_tvOS.a'
   end
 end
