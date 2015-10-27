@@ -64,7 +64,7 @@ BOOL CTOpenSSLSymmetricEncrypt(CTOpenSSLCipher CTCipher, NSData *symmetricKeyDat
     }
     EVP_CIPHER_CTX_set_key_length(&cipherContext, EVP_MAX_KEY_LENGTH);
 
-    unsigned char *outputBuffer = (unsigned char *)calloc(inputLength + EVP_CIPHER_CTX_block_size(&cipherContext) - 1, sizeof(unsigned char));
+    unsigned char *outputBuffer = (unsigned char *)calloc(inputLength + EVP_CIPHER_CTX_block_size(&cipherContext), sizeof(unsigned char));
     int outputLength = 0;
 
     if (!outputBuffer) {
