@@ -28,9 +28,9 @@ Pod::Spec.new do |s|
   end
 
   s.subspec "OpenSSL_iOS" do |ss|
-    ss.source_files        = 'include/openssl/*.h'
+    ss.source_files        = 'include/openssl/*.h', 'lib/Dummy.m'
     ss.public_header_files = 'include/openssl/*.h'
-    ss.header_dir          = 'openssl'
+    ss.module_name         = 'openssl'
 
     ss.ios.vendored_libraries  = 'lib/libcrypto_iOS.a', 'lib/libssl_iOS.a'
     ss.osx.vendored_libraries  = 'lib/libcrypto_Mac.a', 'lib/libssl_Mac.a'
@@ -38,9 +38,9 @@ Pod::Spec.new do |s|
   end
 
   s.subspec "OpenSSL_tvOS" do |ss|
-    ss.source_files        = 'include/openssl/*.h'
+    ss.source_files        = 'include/openssl/*.h', 'lib/Dummy.m'
     ss.public_header_files = 'include/openssl/*.h'
-    ss.header_dir          = 'openssl'
+    ss.module_name         = 'openssl'
 
     ss.ios.vendored_libraries  = 'lib/libcrypto_iOS.a', 'lib/libssl_iOS.a'
     ss.osx.vendored_libraries  = 'lib/libcrypto_Mac.a', 'lib/libssl_Mac.a'
@@ -48,9 +48,9 @@ Pod::Spec.new do |s|
   end
 
   s.subspec "OpenSSL_osx" do |ss|
-    ss.source_files        = 'include/openssl/*.h'
+    ss.source_files        = 'include/openssl/*.h', 'lib/Dummy.m'
     ss.public_header_files = 'include/openssl/*.h'
-    ss.header_dir          = 'openssl'
+    ss.module_name         = 'openssl'
 
     ss.ios.vendored_libraries  = 'lib/libcrypto_iOS.a', 'lib/libssl_iOS.a'
     ss.osx.vendored_libraries  = 'lib/libcrypto_Mac.a', 'lib/libssl_Mac.a'

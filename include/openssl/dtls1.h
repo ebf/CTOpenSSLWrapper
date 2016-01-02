@@ -62,6 +62,7 @@
 
 # include <openssl/buffer.h>
 # include <openssl/pqueue.h>
+# include <openssl/ssl.h>
 # ifdef OPENSSL_SYS_VMS
 #  include <resource.h>
 #  include <sys/timeb.h>
